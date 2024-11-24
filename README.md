@@ -3,8 +3,9 @@
 # What is different from the official Zig extension?
 
 - Supports master releases of zls
-- Alternative zls fork available: [zigscient](https://github.com/llogick/zigscient)
-- Automatically detect zig version and download the correct binary
+- Ability to add custom zls forks
+- [zigscient](https://github.com/llogick/zigscient) fork support
+- Workspace independent configuration
 - TODO and other comment highlight improvements
 
 # Installation
@@ -123,5 +124,9 @@ Or directly in your Zed's global `settings.json`.
 I wasn't satisfied with the official Zig extension. Also i took a liking to the zigscient, a zls fork that improves a lot of aspects zls was lacking in.
 Also this will give users seamless ways to change it and update it, according to project and without much setup.
 The official extension didn't even use newer zls versions and was only stuck on the github releases, which quite frankly are from stoneage when you'd like to develop on master.
+
+# Notes
+- This extension is still in development. If something is broken, please open an issue.
+
 # Contributing
 Contributions are always welcome! Please open an issue or a PR.
