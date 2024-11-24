@@ -1,0 +1,52 @@
+[package]
+version = "0.1.0"
+name = "zed-zig"
+authors = ["viable <hi@viable.gg>"]
+edition = "2021"
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["zig", "zed", "zed-extension"]
+repository = "https://github.com/nuiipointerexception/zed-zig"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+zed_extension_api = "0.1.0"
+serde = { version = "1.0.215", default-features = false, features = ["derive"] }
+
+# Directly derived from Zed's repository.
+[lints.clippy]
+dbg_macro = "deny"
+todo = "deny"
+single_range_in_vec_init = "allow"
+style = { level = "allow", priority = -1 }
+module_inception = { level = "deny" }
+question_mark = { level = "deny" }
+redundant_closure = { level = "deny" }
+type_complexity = "allow"
+new_ret_no_self = { level = "allow" }
+should_implement_trait = { level = "allow" }
+
+[package.metadata.cargo-machete]
+ignored = ["bindgen", "cbindgen", "prost_build", "serde"]
+
+[profile.dev]
+split-debuginfo = "unpacked"
+debug = "limited"
+codegen-units = 16
+
+[profile.release]
+opt-level = "z"
+lto = "thin"
+debug = 1
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.release-fast]
+inherits = "release"
+debug = "full"
+lto = false
+codegen-units = 16

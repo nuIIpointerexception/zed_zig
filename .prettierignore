@@ -1,0 +1,9 @@
+# rust
+/target/
+**/*.rs.bk
+/target
+
+# wasm
+extension.wasm
+grammars
+languages

@@ -1,0 +1,16 @@
+[
+  {
+    "label": "clippy",
+    "command": "cargo",
+    "args": ["clippy", "--release", "--all-targets", "--all-features", "--", "--deny", "warnings"],
+    "allow_concurrent_runs": true,
+    "use_new_terminal": false
+  },
+  {
+    "label": "build --release-fast",
+    "command": "cargo",
+    "args": ["build", "--profile", "release-fast"],
+    "allow_concurrent_runs": true,
+    "use_new_terminal": false
+  }
+]
