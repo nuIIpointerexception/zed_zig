@@ -37,9 +37,11 @@ Or directly in your Zed's global `settings.json`.
                 /// Language server provider to use.
                 /// Not needed if custom binary provided.
                 /// Available providers:
-                ///   - zls
+                ///   - zls (default, latest)
+                ///   - zls-stable (latest release on github)
                 ///   - zigscient
-                "provider": "zigscient"
+                ///   - custom (WIP)
+                "provider": "zls"
             },
             "initialization_options": {
                 /// automatically discards values and more
