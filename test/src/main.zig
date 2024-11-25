@@ -1,5 +1,9 @@
 const std = @import("std");
 
+// TODO(viable): This is colored!
+// TODO This isn't colored!
+/// FIXME(viable): Nothing to fix.
+/// BUG(viable): I'm just joking!
 pub fn main() !void {
     const stdout = std.io.getStdOut().writer();
     try stdout.print("Hello, world!\n", .{});

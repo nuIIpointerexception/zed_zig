@@ -1,5 +1,11 @@
-# zed_zig
+# zed-zig
 First class Zig support for the [Zed Editor](https://github.com/zed-industries/zed)
+
+![image](./.github/assets/editor.png)
+
+## Prerequisites
+- Zed 0.162.0 or newer
+- Zig binary in path or configured in settings.json
 
 ## Features
 - Supports master releases of zls
