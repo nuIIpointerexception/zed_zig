@@ -11,7 +11,7 @@ First class Zig support for the [Zed Editor](https://github.com/zed-industries/z
 - Supports master releases of zls
 - Predefined tasks for build, test, run
 - Runnable Code Detection
-  - Displays clickable run buttons (▶️
+  - Displays clickable run buttons (▶️)
   - One-click execution for main functions and individual tests
 - Ability to add custom zls forks
 - Support custom provider or: [[zigscient](https://github.com/llogick/zigscient) | zls-stable | zls-master]

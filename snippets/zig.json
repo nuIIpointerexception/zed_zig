@@ -1,0 +1,181 @@
+{
+    "main": {
+        "prefix": ["helloworld"],
+        "body": [
+            "const std = @import(\"std\");",
+            "",
+            "pub fn main() void {",
+            "\tstd.debug.print(\"Hello, {s}!\\n\", .{\"World\"});",
+            "}"
+        ],
+        "description": "Prints 'Hello, World!' to the console"
+    },
+    "import": {
+        "prefix": "import",
+        "body": ["const $1 = @import(\"$2\");", "$0"],
+        "description": "Import a module using @import"
+    },
+    "import std": {
+        "prefix": ["import_std", "imps"],
+        "body": ["const std = @import(\"std\");", "$0"],
+        "description": "Import the standard library"
+    },
+    "import builtin": {
+        "prefix": ["import_builtin", "impb"],
+        "body": ["const builtin = @import(\"builtin\");", "$0"],
+        "description": "Import the builtin module"
+    },
+    "fn": {
+        "prefix": "fn",
+        "body": ["fn $1($2)$3 $4 {", "\t$0", "}"],
+        "description": "Create a function with optional error union return type"
+    },
+    "generic fn": {
+        "prefix": "fn_generic",
+        "body": ["fn $1(comptime $2: $3, $4)$5 $6 {", "\t$0", "}"],
+        "description": "Create a generic function with compile-time type parameter"
+    },
+    "pub fn": {
+        "prefix": "pub_fn",
+        "body": ["pub fn $1($2)$3 $4 {", "\t$0", "}"],
+        "description": "Create a public function with optional error union return type"
+    },
+    "inline fn": {
+        "prefix": "inline_fn",
+        "body": ["inline fn $1($2)$3 $4 {", "\t$0", "}"],
+        "description": "Create an inline function"
+    },
+    "nested fn": {
+        "prefix": "nested_fn",
+        "body": ["const $1 = struct {", "\tfn $2($3)$4 $5 {", "\t\t$0", "\t}", "}.$2;"],
+        "description": "Create a nested function inside a struct"
+    },
+    "debug": {
+        "prefix": "debug",
+        "body": ["std.debug.print(\"$1\", .{ $2 });", "$0"],
+        "description": "Print debug output using std.debug.print"
+    },
+    "stdout": {
+        "prefix": "stdout",
+        "body": ["const $1 = std.io.getStdOut().writer();", "$0"],
+        "description": "Get the standard output writer"
+    },
+    "comptime": {
+        "prefix": "comptime",
+        "body": ["comptime $1 = $2;", "$0"],
+        "description": "Define a compile-time variable"
+    },
+    "var": {
+        "prefix": "var",
+        "body": ["var $1: $2 = $3;", "$0"],
+        "description": "Declare a variable with explicit type"
+    },
+    "const": {
+        "prefix": "const",
+        "body": ["const $1 = $2;", "$0"],
+        "description": "Declare a constant with inferred type"
+    },
+    "const type": {
+        "prefix": "const_type",
+        "body": ["const $1: $2 = $3;", "$0"],
+        "description": "Declare a constant with explicit type"
+    },
+    "struct": {
+        "prefix": "struct",
+        "body": ["struct {", "\t$0", "}"],
+        "description": "Create an anonymous struct"
+    },
+    "const struct": {
+        "prefix": "const_struct",
+        "body": ["const $1 = struct {", "\t$0", "};"],
+        "description": "Create a named struct type"
+    },
+    "enum": {
+        "prefix": "enum",
+        "body": ["const $1 = enum($2) {", "\t$0", "};"],
+        "description": "Create an enumeration with specified integer type"
+    },
+    "union": {
+        "prefix": "union",
+        "body": ["const $1 = union($2) {", "\t$0", "};"],
+        "description": "Create a tagged union type"
+    },
+    "for value": {
+        "prefix": "for_value",
+        "body": ["for ($1) |$2| {", "\t$0", "}"],
+        "description": "Create a for loop iterating over values"
+    },
+    "for value index": {
+        "prefix": "for_value_index",
+        "body": ["for ($1, 0..) |$2, $3| {", "\t$0", "}"],
+        "description": "Create a for loop with both value and index"
+    },
+    "for inline": {
+        "prefix": "for_inline",
+        "body": ["inline for ($1) |$2| {", "\t$0", "}"],
+        "description": "Create an inline for loop"
+    },
+    "for label": {
+        "prefix": "for_label",
+        "body": ["$1: for ($2) |$3| {", "\t$0", "}"],
+        "description": "Create a labeled for loop"
+    },
+    "for else": {
+        "prefix": "for_else",
+        "body": ["for ($1) |$2| {", "\t$3", "\tbreak true;", "} else false;", "$0"],
+        "description": "Create a for loop with else branch"
+    },
+    "while": {
+        "prefix": "while",
+        "body": ["while ($1) {", "\t$0", "}"],
+        "description": "Create a while loop"
+    },
+    "while else": {
+        "prefix": "while_else",
+        "body": ["while ($1) {", "\t$2", "\tbreak true;", "} else false;", "$0"],
+        "description": "Create a while loop with else branch"
+    },
+    "while option": {
+        "prefix": "while?",
+        "body": ["while ($1) |$2| {", "\t$3", "} else |err| {", "\t$0", "}"],
+        "description": "Create a while loop for optional values with error handling"
+    },
+    "while label": {
+        "prefix": "while_label",
+        "body": [
+            "$1: while ($2) {",
+            "\t$3",
+            "\twhile ($4) {",
+            "\t\tbreak :$1;",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Create a labeled while loop with nested break"
+    },
+    "list": {
+        "prefix": "list",
+        "body": [".{$1};", "$0"],
+        "description": "Create an anonymous list literal"
+    },
+    "array init": {
+        "prefix": "array_init",
+        "body": ["&[_$1]$2{$3};", "$0"],
+        "description": "Initialize an array with optional sentinel"
+    },
+    "array list": {
+        "prefix": "array_list",
+        "body": ["var $1 = std.ArrayList($2).init($3);", "$0"],
+        "description": "Create a dynamic array list"
+    },
+    "test": {
+        "prefix": "test",
+        "body": ["test \"$1\" {", "\t$0", "}"],
+        "description": "Create a test block"
+    },
+    "expect": {
+        "prefix": "expect",
+        "body": ["try std.testing.$1($2);", "$0"],
+        "description": "Add a test expectation using std.testing"
+    }
+}

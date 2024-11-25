@@ -5,6 +5,7 @@ version = "0.1.0"
 schema_version = 1
 authors = ["viable <hi@viable.gg>"]
 repository = "https://github.com/nuiipointerexception/zed-zig"
+snippets = "./snippets/zig.json"
 
 [language_servers.zls]
 name = "zls"
