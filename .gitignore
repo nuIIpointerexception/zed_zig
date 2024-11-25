@@ -2,6 +2,10 @@
 target
 Cargo.lock
 
+# zig
+zig-out
+.zig-cache
+
 # extension
 grammars
 extension.wasm

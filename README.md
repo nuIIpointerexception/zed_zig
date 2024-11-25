@@ -1,26 +1,28 @@
-# First class Zig support for the Zed editor
+# zed_zig
+First class Zig support for the [Zed Editor](https://github.com/zed-industries/zed)
 
-# What is different from the official Zig extension?
-
+## Features
 - Supports master releases of zls
+- Predefined tasks for build, test, run
+- Runnable Code Detection
+  - Displays clickable run buttons (▶️
+  - One-click execution for main functions and individual tests
 - Ability to add custom zls forks
-- [zigscient](https://github.com/llogick/zigscient) fork support
-- Workspace independent configuration
+- Support custom provider or: [[zigscient](https://github.com/llogick/zigscient) | zls-stable | zls-master]
+- Workspace independent configuration ( `.zed/settings.json` in project root)
 - TODO and other comment highlight improvements
 
-# Installation
+## Installation
 
 1. Clone this repository
 2. Open extensions tab in Zed
 3. Click on Install Dev Extension
 4. Select the cloned repository
 
-# Configuration
+## Configuration
 ### Both providers use the same configuration file.
 Create it in your project rootdirectory under `.zed/settings.json`.
 Or directly in your Zed's global `settings.json`.
-
-## Example
 
 ```json
 {
