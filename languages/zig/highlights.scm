@@ -1,35 +1,32 @@
-; Documentation
-; Documentation comments (/// or //!)
+; Documentation comments
 ((comment) @comment.documentation
  (#match? @comment.documentation "^///?\/?!?"))
 
-; FIXME and alternatives
-((comment) @variable.special
- (#match? @variable.special "^///?\\s*(FIXME|FIX|BUG|FIXIT|ISSUE)\\(.*\\):"))
+; @variables in doc comments - try to match text pattern
+((doc_string "@"+ @enum) @comment.documentation
+ (#match? @comment.documentation "^///?\/?!?"))
 
-; NOTE and alternatives
-((comment) @hint
- (#match? @hint "^///?\\s*(NOTE|INFO)\\(.*\\):"))
+; Command tags
+((comment) @type.builtin
+ (#match? @type.builtin "^(///?|//!)\\s*TODO(\\(.*\\))?:"))
 
-; HACK comments
-((comment) @number
- (#match? @number "^///?\\s*(HACK)\\(.*\\):"))
+((comment) @property
+ (#match? @property "^(///?|//!)\\s*FIXME(\\(.*\\))?:"))
 
-; WARN and alternatives
-((comment) @number
- (#match? @number "^///?\\s*(WARN|WARNING|XXX)\\(.*\\):"))
+((comment) @variable.parameter
+ (#match? @variable.parameter "^(///?|//!)\\s*NOTE(\\(.*\\))?:"))
 
-; PERF and alternatives
-((comment) @hint
- (#match? @hint "^///?\\s*(PERF|OPTIM|PERFORMANCE|OPTIMIZE)\\(.*\\):"))
+((comment) @property
+ (#match? @property "^(///?|//!)\\s*HACK(\\(.*\\))?:"))
 
-; TODO comments
-((comment) @enum
- (#match? @enum "^///?\\s*(TODO)\\(.*\\):"))
+((comment) @constant
+ (#match? @constant "^(///?|//!)\\s*WARN(\\(.*\\))?:"))
 
-; TEST and alternatives
-((comment) @boolean
- (#match? @boolean "^///?\\s*(TEST|TESTING|PASSED|FAILED)\\(.*\\):"))
+((comment) @label
+ (#match? @label "^(///?|//!)\\s*PERF(\\(.*\\))?:"))
+
+((comment) @module
+ (#match? @module "^(///?|//!)\\s*TEST(\\(.*\\))?:"))
 
 ; Variables
 (identifier) @variable
