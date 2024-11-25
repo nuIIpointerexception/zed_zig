@@ -16,6 +16,7 @@ First class Zig support for the [Zed Editor](https://github.com/zed-industries/z
 - Ability to add custom zls forks
 - Support custom provider or: [[zigscient](https://github.com/llogick/zigscient) | zls-stable | zls-master]
 - Workspace independent configuration ( `.zed/settings.json` in project root)
+- Snippets for common tasks: ([snippets/zig.json](./snippets/zig.json))
 - TODO and other comment highlight improvements
 
 ## Installation
