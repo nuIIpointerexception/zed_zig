@@ -2,10 +2,6 @@
 ((comment) @comment.documentation
  (#match? @comment.documentation "^///?\/?!?"))
 
-; @variables in doc comments - try to match text pattern
-((doc_string "@"+ @enum) @comment.documentation
- (#match? @comment.documentation "^///?\/?!?"))
-
 ; Command tags
 ((comment) @type.builtin
  (#match? @type.builtin "^(///?|//!)\\s*TODO(\\(.*\\))?:"))
